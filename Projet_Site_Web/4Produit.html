@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script rel="" src="Javascript.js"></script>
+    <title>Herbature - Votre Boutique en Ligne</title>
+
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo" href = "site_ecommerce_vert.html">Herbature</div>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Rechercher des produits...">
+                <button id="searchButton">🔍</button>
+            </div>
+            <div class="header-actions">
+                <a>👤 Compte</a>
+                <a>🛒 Panier (0)</a>
+            </div>
+        </div>
+    </header>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a class="nav-link active" href = "1site_ecommerce_vert.html">Accueil</a></li>
+            <li><a class="nav-link" onclick = "navigateTo('products')">Produits</a></li>
+            <li><a class="nav-link" href="Apropos.html">À propos</a></li>
+            <li><a class="nav-link" href="3contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- PAGE PRODUITS -->
+    <div id="products" class="page active">
+        <div class="container">
+            <h1 style="font-size: 3rem; margin-bottom: 2rem;">Tous nos produits</h1>
+            <div class="products-grid">
+
+                <div class="product-card" onclick="navigateTo('1')">
+                    <div class="product-image">...</div>
+                    <div class="product-info">
+                        <div class="product-title">Herbe morte</div>
+                        <div class="product-price">40€/m²</div>
+                        <div class="product-desc">Herbe peu odorente pour les plus petits budjets, abordable à tous.</div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart(1)">Ajouter au panier</button> 
+                    </div>
+                </div>
+                <div class="product-card" onclick="viewProduct(2)">
+                    <div class="product-image">...</div>
+                    <div class="product-info">
+                        <div class="product-title">Herbe polluée </div>
+                        <div class="product-price">60€/m²</div>
+                        <div class="product-desc">Herbe qui à vécue dans les grandes villes telles que Paris ou Lyon, bien nettoyée pour vous éviter les cacas de chien.</div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart(2)">Ajouter au panier</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="viewProduct(3)">
+                    <div class="product-image">..</div>
+                    <div class="product-info">
+                        <div class="product-title">Herbe sèche</div>
+                        <div class="product-price">45€/m²</div>
+                        <div class="product-desc">Une herbe pour les nez fins avec une subtile odeure pour les renifleurs agueris. Attention aux irritations si vous en abusez.</div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart(3)">Ajouter au panier</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="viewProduct(4)">
+                    <div class="product-image">...</div>
+                    <div class="product-info">
+                        <div class="product-title">Herbe d'élevage</div>
+                        <div class="product-price">90€/m²</div>
+                        <div class="product-desc">Herbe élevée avec les amours de nos petits agriculteurs en herbe qui les ont chouchoutées comme il le faut!</div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart(4)">Ajouter au panier</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="viewProduct(5)">
+                    <div class="product-image">...</div>
+                    <div class="product-info">
+                        <div class="product-title">Herbe à fleurs</div>
+                        <div class="product-price">100€/m²</div>
+                        <div class="product-desc">Herbe avec de jolies fleurs remplies de vies et de couleurs pour vous rappeler les belles campagnes de votre enfance.</div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart(5)">Ajouter au panier</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="viewProduct(6)">
+                    <div class="product-image">...</div>
+                    <div class="product-info">
+                        <div class="product-title">Herbe peu polluée</div>
+                        <div class="product-price">80€/m2</div>
+                        <div class="product-desc">Herbe récolltée pas loin des grandes villes, permet aux plus sensibles d'éviter trop de pollution à prix pas trop élevé et de ne pas trop perdre d'espérence de vie.</div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart(6)">Ajouter au panier</button>
+                    </div>
+                </div>
+                
+                <div class="product-card" onclick="viewProduct(7)">
+                    <div class="product-image">...</div>
+                    <div class="product-info">
+                        <div class="product-title">Herbe marine</div>
+                        <div class="product-price">95€/m2</div>
+                        <div class="product-desc">Herbe récoltée sans abîmer les coraux pour le bien de la mer, avec un petit goût salé spécial pour les plus gourmands.</div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart(7)">Ajouter au panier</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="viewProduct(8)">
+                    <div class="product-image">...</div>
+                    <div class="product-info">
+                        <div class="product-title">Herbe fraichement tondue</div>
+                        <div class="product-price">135€/m2</div>
+                        <div class="product-desc">Herbe faite pour gambader et sentir l'herbe fraîche et satisfaisante sous nos petits pieds, possède une odeur unique qui fait rêver chacuns.</div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart(8)">Ajouter au panier</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="viewProduct(9)">
+                    <div class="product-image">...</div>
+                    <div class="product-info">
+                        <div class="product-title">Herbe sauvage</div>
+                        <div class="product-price">120€/m2</div>
+                        <div class="product-desc">Herbe destinée aux plus fougueux d'entre vous car récoltée dans les contrées les plus dangereuses pour satisfaire vos esprtis les plus combatifs.</div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart(9)">Ajouter au panier</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="viewProduct(10)">
+                    <div class="product-image">...</div>
+                    <div class="product-info">
+                        <div class="product-title">Herbe cultivée sous serre</div>
+                        <div class="product-price">145€/m2</div>
+                        <div class="product-desc">Herbe spéciale pour les plus sensibles et émotifs qui ne connais qu'un environnement et un air pur de nos serres bio naturelles.</div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart(10)">Ajouter au panier</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="viewProduct(11)">
+                    <div class="product-image">...</div>
+                    <div class="product-info">
+                        <div class="product-title">Herbe de chaque continants</div>
+                        <div class="product-price">160€/m2</div>
+                        <div class="product-desc">Herbe qui vient du monde pour les avides d'aventure qui veulent voyager à travers ces choix différents et exaltants de voyage. Cette commande vous offrira un pays alétoire, regarder les pays concernés si interressé.</div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart(11)">Ajouter au panier</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="viewProduct(12)">
+                    <div class="product-image">...</div>
+                    <div class="product-info">
+                        <div class="product-title">Herbe spéciale</div>
+                        <div class="product-price">5€/g</div>
+                        <div class="product-desc">Pour les désireux de faire monter leur esprtit au septième ciel, cette herbe magique bio est faite pour vous. Relaxante, apaisante et agréable pour les plus tendus qui veulent se reconncter à la nature. Peut se consommer de plusieurs façons.</div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart(12)">Ajouter au panier</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="viewProduct(13)">
+                    <div class="product-image">...</div>
+                    <div class="product-info">
+                        <div class="product-title">Herbe en or</div>
+                        <div class="product-price">1 000 00€/m2</div>
+                        <div class="product-desc">Herbe qui vient du monde pour les avides d'aventure qui veulent voyager à travers ces choix différents et exaltants de voyage. Cette commande vous offrira un pays alétoire, regarder les pays concernés si interressé.</div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart(13)">Ajouter au panier</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE DÉTAIL PRODUIT -->
+    <div id = "produit_detail">
+        <div class="container" id = "1">
+            <span class="back-link" href = "Produit_tableau.html">← Retour aux produits</span>
+                
+            <div class="product-detail-container">
+                <div>
+                    <div class="product-detail-image" id="detailProductImage">...</div>
+                </div>
+
+                <div class="product-detail-info">
+                    <h1 id="detailProductTitle">Herbe morte</h1>
+                    <div class="product-detail-price" id="detailProductPrice">40 €</div>
+
+                    <div class="product-description-box">
+                        <h3>Description du produit</h3>
+                        <p>Herbe peu odorente pour les plus petits budjets, abordable à tous.</p>
+                    </div>
+
+                    <div class="product-specs">
+                        <h3>Caractéristiques</h3>
+                        <div class="spec-row">
+                            <span class="spec-label">Quantité</span>
+                            <span class="spec-value" id="specBrand">au m²</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Provenance</span>
+                            <span class="spec-value" id="specModel">France</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Qualité</span>
+                            <span class="spec-value" id="specRef">Basse</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Disponibilité</span>
+                            <span class="spec-value" style="color: var(--vert-moyen); font-weight: bold;">✓ En stock</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Rank</span>
+                            <span class="spec-value">Bronze 3</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Livraison</span>
+                            <span class="spec-value">2-3 jours ouvrés</span>
+                        </div>
+                    </div>
+
+                    <div class="quantity-section">
+                        <span style="font-weight: 600;">Quantité :</span>
+                        <button onclick="decreaseQty()">-</button>
+                        <input type="number" id="quantity" value="1" min="1">
+                        <button onclick="increaseQty()">+</button>
+                    </div>
+
+                    <button class="btn-buy" onclick="buyNow()">🛒 Commander maintenant</button>
+                    <button class="btn-add-cart" onclick="addToCart()">Ajouter au panier</button>
+                </div>
+            </div>
+        </div>
+
+        
+        <!-- PAGE DÉTAIL PRODUIT 2 -->
+
+        <div class="container" id = "2">
+            <span class="back-link" onclick="navigateTo('products')">← Retour aux produits</span>
+                
+            <div class="product-detail-container">
+                <div>
+                    <div class="product-detail-image" id="detailProductImage">...</div>
+                </div>
+
+                <div class="product-detail-info">
+                    <h1 id="detailProductTitle">Herbe polluée</h1>
+                    <div class="product-detail-price" id="detailProductPrice">60 €</div>
+
+                    <div class="product-description-box">
+                        <h3>Description du produit</h3>
+                        <p>Herbe qui à vécue dans les grandes villes telles que Paris ou Lyon, bien nettoyée pour vous éviter les cacas de chien.</p>
+                    </div>
+
+                    <div class="product-specs">
+                        <h3>Caractéristiques</h3>
+                        <div class="spec-row">
+                            <span class="spec-label">Quantité</span>
+                            <span class="spec-value" id="specBrand">au m²</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Provenance</span>
+                            <span class="spec-value" id="specModel">France</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Qualité</span>
+                            <span class="spec-value" id="specRef">85% de pollution</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Disponibilité</span>
+                            <span class="spec-value" style="color: var(--vert-moyen); font-weight: bold;">✓ En stock</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Rank</span>
+                            <span class="spec-value">Or 2</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Livraison</span>
+                            <span class="spec-value">2-3 jours ouvrés</span>
+                        </div>
+                    </div>
+
+                    <div class="quantity-section">
+                        <span style="font-weight: 600;">Quantité :</span>
+                        <button onclick="decreaseQty()">-</button>
+                        <input type="number" id="quantity" value="1" min="1">
+                        <button onclick="increaseQty()">+</button>
+                    </div>
+
+                    <button class="btn-buy" onclick="buyNow()">🛒 Commander maintenant</button>
+                    <button class="btn-add-cart" onclick="addToCart()">Ajouter au panier</button>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- PAGE DÉTAIL PRODUIT 3 -->
+
+        <div class="container" id = "2">
+            <span class="back-link" onclick="navigateTo('products')">← Retour aux produits</span>
+                
+            <div class="product-detail-container">
+                <div>
+                    <div class="product-detail-image" id="detailProductImage">...</div>
+                </div>
+
+                <div class="product-detail-info">
+                    <h1 id="detailProductTitle">Herbe sèche</h1>
+                    <div class="product-detail-price" id="detailProductPrice">45 €</div>
+
+                    <div class="product-description-box">
+                        <h3>Description du produit</h3>
+                        <p>Une herbe pour les nez fins avec une subtile odeure pour les renifleurs agueris. Attention aux irritations si vous en abusez.</p>
+                    </div>
+
+                    <div class="product-specs">
+                        <h3>Caractéristiques</h3>
+                        <div class="spec-row">
+                            <span class="spec-label">Quantité</span>
+                            <span class="spec-value" id="specBrand">au m²</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Provenance</span>
+                            <span class="spec-value" id="specModel">France</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Qualité</span>
+                            <span class="spec-value" id="specRef">Médiocre</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Disponibilité</span>
+                            <span class="spec-value" style="color: var(--vert-moyen); font-weight: bold;">✓ En stock</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Rank</span>
+                            <span class="spec-value">Or 1</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Livraison</span>
+                            <span class="spec-value">2-3 jours ouvrés</span>
+                        </div>
+                    </div>
+
+                    <div class="quantity-section">
+                        <span style="font-weight: 600;">Quantité :</span>
+                        <button onclick="decreaseQty()">-</button>
+                        <input type="number" id="quantity" value="1" min="1">
+                        <button onclick="increaseQty()">+</button>
+                    </div>
+
+                    <button class="btn-buy" onclick="buyNow()">🛒 Commander maintenant</button>
+                    <button class="btn-add-cart" onclick="addToCart()">Ajouter au panier</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE DÉTAIL PRODUIT 4 -->
+
+        <div class="container" id = 4>
+            <span class="back-link" onclick="navigateTo('products')">← Retour aux produits</span>
+                
+            <div class="product-detail-container">
+                <div>
+                    <div class="product-detail-image" id="detailProductImage">...</div>
+                </div>
+
+                <div class="product-detail-info">
+                    <h1 id="detailProductTitle">Herbe d'élevage</h1>
+                    <div class="product-detail-price" id="detailProductPrice">90 €</div>
+
+                    <div class="product-description-box">
+                        <h3>Description du produit</h3>
+                        <p>Herbe élevée avec les amours de nos petits agriculteurs en herbe qui les ont chouchoutées comme il le faut!</p>
+                    </div>
+
+                    <div class="product-specs">
+                        <h3>Caractéristiques</h3>
+                        <div class="spec-row">
+                            <span class="spec-label">Quantité</span>
+                            <span class="spec-value" id="specBrand">au m²</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Provenance</span>
+                            <span class="spec-value" id="specModel">France</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Qualité</span>
+                            <span class="spec-value" id="specRef">Bonne</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Disponibilité</span>
+                            <span class="spec-value" style="color: var(--vert-moyen); font-weight: bold;">✓ En stock</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Rank</span>
+                            <span class="spec-value">Platine 3</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Livraison</span>
+                            <span class="spec-value">2-3 jours ouvrés</span>
+                        </div>
+                    </div>
+
+                    <div class="quantity-section">
+                        <span style="font-weight: 600;">Quantité :</span>
+                        <button onclick="decreaseQty()">-</button>
+                        <input type="number" id="quantity" value="1" min="1">
+                        <button onclick="increaseQty()">+</button>
+                    </div>
+
+                    <button class="btn-buy" onclick="buyNow()">🛒 Commander maintenant</button>
+                    <button class="btn-add-cart" onclick="addToCart()">Ajouter au panier</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE DÉTAIL PRODUIT 5 -->
+
+        <div class="container" id = "5">
+            <span class="back-link" onclick="navigateTo('products')">← Retour aux produits</span>
+                
+            <div class="product-detail-container">
+                <div>
+                    <div class="product-detail-image" id="detailProductImage">...</div>
+                </div>
+
+                <div class="product-detail-info">
+                    <h1 id="detailProductTitle">Herbe à fleurs</h1>
+                    <div class="product-detail-price" id="detailProductPrice">100 €</div>
+
+                    <div class="product-description-box">
+                        <h3>Description du produit</h3>
+                        <p>Herbe avec de jolies fleurs remplies de vies et de couleurs pour vous rappeler les belles campagnes de votre enfance.</p>
+                    </div>
+
+                    <div class="product-specs">
+                        <h3>Caractéristiques</h3>
+                        <div class="spec-row">
+                            <span class="spec-label">Quantité</span>
+                            <span class="spec-value" id="specBrand">au m²</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Provenance</span>
+                            <span class="spec-value" id="specModel">France</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Qualité</span>
+                            <span class="spec-value" id="specRef">Bonne</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Disponibilité</span>
+                            <span class="spec-value" style="color: var(--vert-moyen); font-weight: bold;">✓ En stock</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Rank</span>
+                            <span class="spec-value">Diamand 2</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Livraison</span>
+                            <span class="spec-value">2-3 jours ouvrés</span>
+                        </div>
+                    </div>
+
+                    <div class="quantity-section">
+                        <span style="font-weight: 600;">Quantité :</span>
+                        <button onclick="decreaseQty()">-</button>
+                        <input type="number" id="quantity" value="1" min="1">
+                        <button onclick="increaseQty()">+</button>
+                    </div>
+
+                    <button class="btn-buy" onclick="buyNow()">🛒 Commander maintenant</button>
+                    <button class="btn-add-cart" onclick="addToCart()">Ajouter au panier</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE DÉTAIL PRODUIT 6 -->
+
+        <div class="container" id = "6">
+            <span class="back-link" onclick="navigateTo('products')">← Retour aux produits</span>
+                
+            <div class="product-detail-container">
+                <div>
+                    <div class="product-detail-image" id="detailProductImage">...</div>
+                </div>
+
+                <div class="product-detail-info">
+                    <h1 id="detailProductTitle">Herbe peu polluée</h1>
+                    <div class="product-detail-price" id="detailProductPrice">80 €</div>
+
+                    <div class="product-description-box">
+                        <h3>Description du produit</h3>
+                        <p> Herbe récolltée pas loin des grandes villes, permet aux plus sensibles d'éviter trop de pollution à prix pas trop élevé et de ne pas trop perdre d'espérence de vie.</p>
+                    </div>
+
+                    <div class="product-specs">
+                        <h3>Caractéristiques</h3>
+                        <div class="spec-row">
+                            <span class="spec-label">Quantité</span>
+                            <span class="spec-value" id="specBrand">au m²</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Provenance</span>
+                            <span class="spec-value" id="specModel">France</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Qualité</span>
+                            <span class="spec-value" id="specRef">Médiocre-Bonne, 30% de pollution</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Disponibilité</span>
+                            <span class="spec-value" style="color: var(--vert-moyen); font-weight: bold;">✓ En stock</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Rank</span>
+                            <span class="spec-value">Platine 1</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Livraison</span>
+                            <span class="spec-value">2-3 jours ouvrés</span>
+                        </div>
+                    </div>
+
+                    <div class="quantity-section">
+                        <span style="font-weight: 600;">Quantité :</span>
+                        <button onclick="decreaseQty()">-</button>
+                        <input type="number" id="quantity" value="1" min="1">
+                        <button onclick="increaseQty()">+</button>
+                    </div>
+
+                    <button class="btn-buy" onclick="buyNow()">🛒 Commander maintenant</button>
+                    <button class="btn-add-cart" onclick="addToCart()">Ajouter au panier</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE DÉTAIL PRODUIT 7 -->
+
+        <div class="container" id = "7">
+            <span class="back-link" onclick="navigateTo('products')">← Retour aux produits</span>
+                
+            <div class="product-detail-container">
+                <div>
+                    <div class="product-detail-image" id="detailProductImage">...</div>
+                </div>
+
+                <div class="product-detail-info">
+                    <h1 id="detailProductTitle">Herbe marine</h1>
+                    <div class="product-detail-price" id="detailProductPrice">95 €</div>
+
+                    <div class="product-description-box">
+                        <h3>Description du produit</h3>
+                        <p> Herbe récoltée sans abîmer les coraux pour le bien de la mer, avec un petit goût salé spécial pour les plus gourmands. </p>
+                    </div>
+
+                    <div class="product-specs">
+                        <h3>Caractéristiques</h3>
+                        <div class="spec-row">
+                            <span class="spec-label">Quantité</span>
+                            <span class="spec-value" id="specBrand">au m²</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Provenance</span>
+                            <span class="spec-value" id="specModel">France</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Qualité</span>
+                            <span class="spec-value" id="specRef">Bonne</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Disponibilité</span>
+                            <span class="spec-value" style="color: var(--vert-moyen); font-weight: bold;">✓ En stock</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Rank</span>
+                            <span class="spec-value">Diamand 1</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Livraison</span>
+                            <span class="spec-value">2-3 jours ouvrés</span>
+                        </div>
+                    </div>
+
+                    <div class="quantity-section">
+                        <span style="font-weight: 600;">Quantité :</span>
+                        <button onclick="decreaseQty()">-</button>
+                        <input type="number" id="quantity" value="1" min="1">
+                        <button onclick="increaseQty()">+</button>
+                    </div>
+
+                    <button class="btn-buy" onclick="buyNow()">🛒 Commander maintenant</button>
+                    <button class="btn-add-cart" onclick="addToCart()">Ajouter au panier</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE DÉTAIL PRODUIT 8 -->
+
+        <div class="container" id = "8">
+            <span class="back-link" onclick="navigateTo('products')">← Retour aux produits</span>
+                
+            <div class="product-detail-container">
+                <div>
+                    <div class="product-detail-image" id="detailProductImage">...</div>
+                </div>
+
+                <div class="product-detail-info">
+                    <h1 id="detailProductTitle">Herbe fraichement tondue</h1>
+                    <div class="product-detail-price" id="detailProductPrice">135 €</div>
+
+                    <div class="product-description-box">
+                        <h3>Description du produit</h3>
+                        <p>Herbe faite pour gambader et sentir l'herbe fraîche et satisfaisante sous nos petits pieds, possède une odeur unique qui fait rêver chacuns. </p>
+                    </div>
+
+                    <div class="product-specs">
+                        <h3>Caractéristiques</h3>
+                        <div class="spec-row">
+                            <span class="spec-label">Quantité</span>
+                            <span class="spec-value" id="specBrand">au m²</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Provenance</span>
+                            <span class="spec-value" id="specModel">France</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Qualité</span>
+                            <span class="spec-value" id="specRef">Excellente</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Disponibilité</span>
+                            <span class="spec-value" style="color: var(--vert-moyen); font-weight: bold;">✓ En stock</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Rank</span>
+                            <span class="spec-value">Champion 2</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Livraison</span>
+                            <span class="spec-value">2-3 jours ouvrés</span>
+                        </div>
+                    </div>
+
+                    <div class="quantity-section">
+                        <span style="font-weight: 600;">Quantité :</span>
+                        <button onclick="decreaseQty()">-</button>
+                        <input type="number" id="quantity" value="1" min="1">
+                        <button onclick="increaseQty()">+</button>
+                    </div>
+
+                    <button class="btn-buy" onclick="buyNow()">🛒 Commander maintenant</button>
+                    <button class="btn-add-cart" onclick="addToCart()">Ajouter au panier</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE DÉTAIL PRODUIT 9 -->
+
+        <div class="container" id = "9">
+            <span class="back-link" onclick="navigateTo('products')">← Retour aux produits</span>
+                
+            <div class="product-detail-container">
+                <div>
+                    <div class="product-detail-image" id="detailProductImage">...</div>
+                </div>
+
+                <div class="product-detail-info">
+                    <h1 id="detailProductTitle">Herbe sauvage</h1>
+                    <div class="product-detail-price" id="detailProductPrice">120 €</div>
+
+                    <div class="product-description-box">
+                        <h3>Description du produit</h3>
+                        <p>Herbe destinée aux plus fougueux d'entre vous car récoltée dans les contrées les plus dangereuses pour satisfaire vos esprtis les plus combatifs. </p>
+                    </div>
+
+                    <div class="product-specs">
+                        <h3>Caractéristiques</h3>
+                        <div class="spec-row">
+                            <span class="spec-label">Quantité</span>
+                            <span class="spec-value" id="specBrand">au m²</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Provenance</span>
+                            <span class="spec-value" id="specModel">France</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Qualité</span>
+                            <span class="spec-value" id="specRef">Bonne</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Disponibilité</span>
+                            <span class="spec-value" style="color: var(--vert-moyen); font-weight: bold;">✓ En stock</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Rank</span>
+                            <span class="spec-value">Champion 1</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Livraison</span>
+                            <span class="spec-value">2-3 jours ouvrés</span>
+                        </div>
+                    </div>
+
+                    <div class="quantity-section">
+                        <span style="font-weight: 600;">Quantité :</span>
+                        <button onclick="decreaseQty()">-</button>
+                        <input type="number" id="quantity" value="1" min="1">
+                        <button onclick="increaseQty()">+</button>
+                    </div>
+
+                    <button class="btn-buy" onclick="buyNow()">🛒 Commander maintenant</button>
+                    <button class="btn-add-cart" onclick="addToCart()">Ajouter au panier</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE DÉTAIL PRODUIT 10 -->
+
+        <div class="container" id = "10">
+            <span class="back-link" onclick="navigateTo('products')">← Retour aux produits</span>
+                
+            <div class="product-detail-container">
+                <div>
+                    <div class="product-detail-image" id="detailProductImage">...</div>
+                </div>
+
+                <div class="product-detail-info">
+                    <h1 id="detailProductTitle">Herbe cultivée sous serre</h1>
+                    <div class="product-detail-price" id="detailProductPrice">145 €</div>
+
+                    <div class="product-description-box">
+                        <h3>Description du produit</h3>
+                        <p>Herbe spéciale pour les plus sensibles et émotifs qui ne connais qu'un environnement et un air pur de nos serres bio naturelles. </p>
+                    </div>
+
+                    <div class="product-specs">
+                        <h3>Caractéristiques</h3>
+                        <div class="spec-row">
+                            <span class="spec-label">Quantité</span>
+                            <span class="spec-value" id="specBrand">au m²</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Provenance</span>
+                            <span class="spec-value" id="specModel">France</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Qualité</span>
+                            <span class="spec-value" id="specRef">Excellente</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Disponibilité</span>
+                            <span class="spec-value" style="color: var(--vert-moyen); font-weight: bold;">✓ En stock</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Rank</span>
+                            <span class="spec-value">Champion 3</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Livraison</span>
+                            <span class="spec-value">2-3 jours ouvrés</span>
+                        </div>
+                    </div>
+
+                    <div class="quantity-section">
+                        <span style="font-weight: 600;">Quantité :</span>
+                        <button onclick="decreaseQty()">-</button>
+                        <input type="number" id="quantity" value="1" min="1">
+                        <button onclick="increaseQty()">+</button>
+                    </div>
+
+                    <button class="btn-buy" onclick="buyNow()">🛒 Commander maintenant</button>
+                    <button class="btn-add-cart" onclick="addToCart()">Ajouter au panier</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE DÉTAIL PRODUIT 11 -->
+
+        <div class="container" id = "11">
+            <span class="back-link" onclick="navigateTo('products')">← Retour aux produits</span>
+                
+            <div class="product-detail-container">
+                <div>
+                    <div class="product-detail-image" id="detailProductImage">...</div>
+                </div>
+
+                <div class="product-detail-info">
+                    <h1 id="detailProductTitle">Herbe de chaque continants</h1>
+                    <div class="product-detail-price" id="detailProductPrice">160 €</div>
+
+                    <div class="product-description-box">
+                        <h3>Description du produit</h3>
+                        <p>Herbe qui vient du monde pour les avides d'aventure qui veulent voyager à travers ces choix différents et exaltants de voyage. Cette commande vous offrira un pays alétoire, regarder les pays concernés si interressé. </p>
+                    </div>
+
+                    <div class="product-specs">
+                        <h3>Caractéristiques</h3>
+                        <div class="spec-row">
+                            <span class="spec-label">Quantité</span>
+                            <span class="spec-value" id="specBrand">au m²</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Provenance</span>
+                            <span class="spec-value" id="specModel">Colombie/Mexique/Egypte/Thaïlande/Indonésie</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Qualité</span>
+                            <span class="spec-value" id="specRef">Bonne</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Disponibilité</span>
+                            <span class="spec-value" style="color: var(--vert-moyen); font-weight: bold;">✓ En stock</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Rank</span>
+                            <span class="spec-value">Champion 1</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Livraison</span>
+                            <span class="spec-value">2-3 jours ouvrés</span>
+                        </div>
+                    </div>
+
+                    <div class="quantity-section">
+                        <span style="font-weight: 600;">Quantité :</span>
+                        <button onclick="decreaseQty()">-</button>
+                        <input type="number" id="quantity" value="1" min="1">
+                        <button onclick="increaseQty()">+</button>
+                    </div>
+
+                    <button class="btn-buy" onclick="buyNow()">🛒 Commander maintenant</button>
+                    <button class="btn-add-cart" onclick="addToCart()">Ajouter au panier</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE DÉTAIL PRODUIT 12 -->
+
+        <div class="container" id = "12">
+            <span class="back-link" onclick="navigateTo('products')">← Retour aux produits</span>
+                
+            <div class="product-detail-container">
+                <div>
+                    <div class="product-detail-image" id="detailProductImage">...</div>
+                </div>
+
+                <div class="product-detail-info">
+                    <h1 id="detailProductTitle">Herbe Spéciale</h1>
+                    <div class="product-detail-price" id="detailProductPrice">5 €</div>
+
+                    <div class="product-description-box">
+                        <h3>Description du produit</h3>
+                        <p>Pour les désireux de faire monter leur esprtit au septième ciel, cette herbe magique bio est faite pour vous. Relaxante, apaisante et agréable pour les plus tendus qui veulent se reconncter à la nature. Peut se consommer de plusieurs façons. </p>
+                    </div>
+
+                    <div class="product-specs">
+                        <h3>Caractéristiques</h3>
+                        <div class="spec-row">
+                            <span class="spec-label">Quantité</span>
+                            <span class="spec-value" id="specBrand">au gramme</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Provenance</span>
+                            <span class="spec-value" id="specModel">France</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Qualité</span>
+                            <span class="spec-value" id="specRef">Excellente</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Disponibilité</span>
+                            <span class="spec-value" style="color: var(--vert-moyen); font-weight: bold;">✓ En stock</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Rank</span>
+                            <span class="spec-value">Ssl</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Livraison</span>
+                            <span class="spec-value">2-3 jours ouvrés</span>
+                        </div>
+                    </div>
+
+                    <div class="quantity-section">
+                        <span style="font-weight: 600;">Quantité :</span>
+                        <button onclick="decreaseQty()">-</button>
+                        <input type="number" id="quantity" value="1" min="1">
+                        <button onclick="increaseQty()">+</button>
+                    </div>
+
+                    <button class="btn-buy" onclick="buyNow()">🛒 Commander maintenant</button>
+                    <button class="btn-add-cart" onclick="addToCart()">Ajouter au panier</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE DÉTAIL PRODUIT 13 -->
+
+        <div class="container" id = "13">
+            <span class="back-link" href = "site_ecommerce_vert.html" onclick="navigateTo('products')">← Retour aux produits</span>
+                
+            <div class="product-detail-container">
+                <div>
+                    <div class="product-detail-image" id="detailProductImage">...</div>
+                </div>
+
+                <div class="product-detail-info">
+                    <h1 id="detailProductTitle">Herbe en or</h1>
+                    <div class="product-detail-price" id="detailProductPrice">1 000 000 €</div>
+
+                    <div class="product-description-box">
+                        <h3>Description du produit</h3>
+                        <p>Herbe 100% en or cultivée dans un endroit spécial et caché de la population ce qui nous permet d'obtenir cette perfection. </p>
+                    </div>
+
+                    <div class="product-specs">
+                        <h3>Caractéristiques</h3>
+                        <div class="spec-row">
+                            <span class="spec-label">Quantité</span>
+                            <span class="spec-value" id="specBrand">au m²</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Provenance</span>
+                            <span class="spec-value" id="specModel">France</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Qualité</span>
+                            <span class="spec-value" id="specRef">Parfaite</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Disponibilité</span>
+                            <span class="spec-value" style="color: var(--vert-moyen); font-weight: bold;">✓ En stock</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Rank</span>
+                            <span class="spec-value">Ssl</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Livraison</span>
+                            <span class="spec-value">2-3 jours ouvrés</span>
+                        </div>
+                    </div>
+
+                    <div class="quantity-section">
+                        <span style="font-weight: 600;">Quantité :</span>
+                        <button onclick="decreaseQty()">-</button>
+                        <input type="number" id="quantity" value="1" min="1">
+                        <button onclick="increaseQty()">+</button>
+                    </div>
+
+                    <button class="btn-buy" onclick="buyNow()">🛒 Commander maintenant</button>
+                    <button class="btn-add-cart" onclick="addToCart()">Ajouter au panier</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a onclick="navigateTo('home')">Accueil</a></li>
+                    <li><a onclick="navigateTo('products')">Produits</a></li>
+                    <li><a onclick="navigateTo('about')">À propos</a></li>
+                    <li><a>Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Informations</h3>
+                <ul>
+                    <li><a>Conditions générales</a></li>
+                    <li><a>Politique de confidentialité</a></li>
+                    <li><a>Livraison</a></li>
+                    <li><a>Retours & Remboursements</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>À propos de l'entreprise</h3>
+                <p style="color: #ccc; line-height: 1.8;">
+                    Entreprise dévellopée à trois à partir de simplement quelques idées qui ne partaient de rien. 
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Suivez-nous</h3>
+                <div class="social-icons">
+                    <a href="C:\Users\ELEVE1\Desktop\Projet_Site_Web (1)\gif\rick astley GIF.gif" title="Facebook">f</a>
+                    <a href="C:\Users\ELEVE1\Desktop\Projet_Site_Web (1)\gif\Macron Ok GIF.gif" title="Twitter">𝕏</a>
+                    <a href="C:\Users\ELEVE1\Desktop\Projet_Site_Web (1)\gif\Skeleton Shield GIF.gif" title="Instagram">📷</a>
+                    <a href="C:\Users\ELEVE1\Desktop\Projet_Site_Web (1)\gif\Dance Dancing GIF.gif" title="LinkedIn">in</a>
+                    <a href="C:\Users\ELEVE1\Desktop\Projet_Site_Web (1)\gif\Good News Dancing GIF.gif" title="YouTube">▶</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Herbature. Tous droits réservés.</p>
+        </div>
+    </footer>
+</body>
