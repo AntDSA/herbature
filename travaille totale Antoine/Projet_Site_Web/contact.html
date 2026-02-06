@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script rel="" src="Javascript.js"></script>
+    <title>Herbature - Votre Boutique en Ligne</title>
+
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo" onclick="navigateTo('home')">Herbature</div>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Rechercher des produits...">
+                <button id="searchButton">🔍</button>
+            </div>
+            <div class="header-actions">
+                <a>👤 Compte</a>
+                <a>🛒 Panier (0)</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a class="nav-link active" onclick="navigateTo('home')" href="site_ecommerce_vert.html">Accueil</a></li>
+            <li><a class="nav-link" onclick="navigateTo('products')" href="Produit.html">Produits</a></li>
+            <li><a class="nav-link" onclick="navigateTo('about')" href="Apropos.html">À propos</a></li>
+            <li><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Contactez-nous</h1>
+        <p>Notre équipe est là pour répondre à toutes vos questions</p>
+    </section>
+
+    <!-- Contenu de la page Contact -->
+    <div class="container">
+        <div class="contact-layout">
+            <!-- Formulaire de contact -->
+            <div class="contact-form">
+                <h2>Envoyez-nous un message</h2>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Nom complet *</label>
+                        <input type="text" id="name" name="name" required placeholder="Jean Dupont">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required placeholder="votre@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Téléphone</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+33 6 12 34 56 78">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Sujet *</label>
+                        <select id="subject" name="subject" required>
+                            <option value="">Sélectionnez un sujet</option>
+                            <option value="info">Demande d'information</option>
+                            <option value="commande">Question sur une commande</option>
+                            <option value="produit">Question sur un produit</option>
+                            <option value="sav">Service après-vente</option>
+                            <option value="partenariat">Partenariat</option>
+                            <option value="autre">Autre</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" required placeholder="Écrivez votre message ici..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit">📧 Envoyer le message</button>
+                </form>
+            </div>
+
+            <!-- Informations de contact -->
+            <div class="contact-info">
+                <div class="info-card">
+                    <h3>📍 Adresse</h3>
+                    <p>
+                        Lycée Claude Nicolas Ledoux<br>
+                        94, Vincennes<br>
+                        France
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <h3>📞 Téléphone</h3>
+                    <p>
+                        Service client : <a href="tel:+33123456789">+33 6 22 78 33 52</a><br>
+                        Mar-Jeu : 8h30 - 10h20<br>
+                        
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <h3>✉️ Email</h3>
+                    <p>
+                        Contact général : <a href="mailto:contact@verdshop.com">contact@herbature.com</a><br>
+                        Service client : <a href="mailto:support@verdshop.com">support@herbature.com</a><br>
+                        Partenariats : <a href="mailto:partenariat@verdshop.com">partenariat@herbature.com</a>
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <h3>⏰ Horaires d'ouverture</h3>
+                    <p>
+                        Lundi - Vendredi : 9h00 - 18h00<br>
+                        Samedi : 10h00 - 16h00<br>
+                        Dimanche : Fermé
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section carte -->
+        <div class="map-section">
+            <h2>📍 Notre localisation</h2>
+            <div class="map-placeholder">
+                Espace mis-à-jour...
+            </div>
+        </div>
+
+        <!-- Section FAQ -->
+        <div class="faq-section">
+            <h2>❓ Questions fréquentes</h2>
+            
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">
+                    <span>Quels sont les délais de livraison ?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    Nos délais de livraison standard sont de 2 à 3 jours ouvrés en France métropolitaine. Pour les livraisons express, comptez 24h. Les délais peuvent varier selon votre localisation.
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">
+                    <span>Comment puis-je retourner un produit ?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    Il nous est impossible de retourner un produit commme de l'herbe qui est notre vente principale, sauf exeption d'endommagement au cours de la livraison.
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">
+                    <span>Quels moyens de paiement acceptez-vous ?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    Nous acceptons les cartes bancaires (Visa, Mastercard, American Express), PayPal, et le paiement en plusieurs fois sans frais. Tous les paiements sont sécurisés.
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">
+                    <span>Puis-je modifier ma commande après validation ?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    Vous pouvez modifier votre commande dans les 2 heures suivant sa validation. Contactez rapidement notre service client. Passé ce délai, la commande sera en cours de préparation.
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">
+                    <span>Offrez-vous la garantie sur vos produits ?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    Nous n'offront pas de garantie sur des produits frais comme cela.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a onclick="navigateTo('home')">Accueil</a></li>
+                    <li><a onclick="navigateTo('products')">Produits</a></li>
+                    <li><a onclick="navigateTo('about')">À propos</a></li>
+                    <li><a>Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Informations</h3>
+                <ul>
+                    <li><a>Conditions générales</a></li>
+                    <li><a>Politique de confidentialité</a></li>
+                    <li><a>Livraison</a></li>
+                    <li><a>Retours & Remboursements</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>À propos de l'entreprise</h3>
+                <p style="color: #ccc; line-height: 1.8;">
+                    Entreprise dévellopée à trois à partir de simplement quelques idées qui ne partaient de rien.  
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Suivez-nous</h3>
+                <div class="social-icons">
+                    <a href="C:\Users\ELEVE1\Desktop\Projet_Site_Web (1)\gif\rick astley GIF.gif" title="Facebook">f</a>
+                    <a href="C:\Users\ELEVE1\Desktop\Projet_Site_Web (1)\gif\Macron Ok GIF.gif" title="Twitter">𝕏</a>
+                    <a href="C:\Users\ELEVE1\Desktop\Projet_Site_Web (1)\gif\Skeleton Shield GIF.gif" title="Instagram">📷</a>
+                    <a href="C:\Users\ELEVE1\Desktop\Projet_Site_Web (1)\gif\Dance Dancing GIF.gif" title="LinkedIn">in</a>
+                    <a href="C:\Users\ELEVE1\Desktop\Projet_Site_Web (1)\gif\Good News Dancing GIF.gif" title="YouTube">▶</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Herbature. Tous droits réservés.</p>
+        </div>
+    </footer>
+</body>
