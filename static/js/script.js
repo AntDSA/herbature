@@ -142,8 +142,8 @@
 
         // Voir les détails d'un produit
         function viewProduct(productId) {
-            // 1. Masquer la page produits (div parente)
-            document.getElementById('products').style.display = 'none';
+            // 1. Masquer la page produits en retirant la classe active
+            document.getElementById('products').classList.remove('active');
             
             // 2. Afficher la div produit_detail
             document.getElementById('produit_detail').style.display = 'block';
@@ -177,14 +177,13 @@
                 // Masquer les détails du produit
                 document.getElementById('produit_detail').style.display = 'none';
                 
-                // Réafficher la page des produits (div parente ET enfante)
-                document.getElementById('products').style.display = 'block';
-                document.getElementById('products_2').style.display = 'block';
+                // Réafficher la page des produits avec la classe active
+                document.getElementById('products').classList.add('active');
             }
             
             if (section === 'product-detail') {
                 // Masquer la page des produits
-                document.getElementById('products').style.display = 'none';
+                document.getElementById('products').classList.remove('active');
                 
                 // Afficher les détails
                 document.getElementById('produit_detail').style.display = 'block';
