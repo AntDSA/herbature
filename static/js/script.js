@@ -142,9 +142,9 @@
 
         // Voir les détails d'un produit
         function viewProduct(productId) {
-            
-            // 1. Naviguer vers product-detail
-            navigateTo('product-detail');
+            // 1. Retirer 'active' de products et l'ajouter à produit_detail
+            document.getElementById('products').classList.remove('active');
+            document.getElementById('produit_detail').classList.add('active');
             
             // 2. Cacher toutes les div container (détails produits)
             document.querySelectorAll('#produit_detail .container').forEach(div => {
@@ -171,25 +171,15 @@
 
         // Naviguer entre les pages
         function navigateTo(section) {
-            console.log("navigateTo appelé, section:", section);
-            
             if (section === 'products') {
-                // Retirer 'active' de toutes les pages
-                document.querySelectorAll('.page').forEach(page => {
-                    page.classList.remove('active');
-                });
-                
-                // Ajouter 'active' uniquement à products
+                // Retirer 'active' de produit_detail et l'ajouter à products
+                document.getElementById('produit_detail').classList.remove('active');
                 document.getElementById('products').classList.add('active');
             }
             
             if (section === 'product-detail') {
-                // Retirer 'active' de toutes les pages
-                document.querySelectorAll('.page').forEach(page => {
-                    page.classList.remove('active');
-                });
-                
-                // Ajouter 'active' uniquement à produit_detail
+                // Retirer 'active' de products et l'ajouter à produit_detail
+                document.getElementById('products').classList.remove('active');
                 document.getElementById('produit_detail').classList.add('active');
             }
         }
