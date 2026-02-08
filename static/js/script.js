@@ -175,25 +175,16 @@
                 // Retirer 'active' de produit_detail et l'ajouter à products
                 document.getElementById('produit_detail').classList.remove('active');
                 document.getElementById('products').classList.add('active');
+                
+                // IMPORTANT : Réinitialiser le style inline pour que le CSS prenne le dessus
+                document.getElementById('products').style.display = '';
+                document.getElementById('products_2').style.display = '';
             }
             
             if (section === 'product-detail') {
                 // Retirer 'active' de products et l'ajouter à produit_detail
                 document.getElementById('products').classList.remove('active');
                 document.getElementById('produit_detail').classList.add('active');
-            }
-        }
-        // Augmenter la quantité
-        function increaseQty() {
-            const input = document.getElementById('quantity');
-            input.value = parseInt(input.value) + 1;
-        }
-
-        // Diminuer la quantité
-        function decreaseQty() {
-            const input = document.getElementById('quantity');
-            if (parseInt(input.value) > 1) {
-                input.value = parseInt(input.value) - 1;
             }
         }
 
