@@ -166,6 +166,9 @@
                 document.getElementById('specRef').textContent = product.ref;
                 document.getElementById('quantity').value = 1;
             }
+            
+            // Naviguer vers la page de détail
+            navigateTo('product-detail');
         }
     
         // Naviguer vers la page de détail
