@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Profil - Herbature{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Mon Profil</h1>
+    
+    <div class="profile-info">
+        <p><strong>Nom :</strong> {{ client.nom }}</p>
+        <p><strong>Prenom :</strong> {{ client.prenom }}</p>
+        <p><strong>Email :</strong> {{ client.email }}</p>
+    </div>
+    
+    <a href="{{ url_for('index') }}" class="btn">Retour</a>
+</div>
+{% endblock %}
