@@ -12,14 +12,14 @@
     <!-- Header -->
     <header>
         <div class="header-container">
-            <div class="logo" href = "index.html">Herbature</div>
+            <div class="logo" href="../templates/index.html">Herbature</div>
             <div class="search-container">
                 <input type="text" id="searchInput" placeholder="Rechercher des produits...">
                 <button id="searchButton">🔍</button>
             </div>
             <div class="header-actions">
-                <a href="compte.html">👤 Compte</a>
-                <a href="panier.html">🛒 Panier (0)</a>
+                <a href="../templates/compte.html">👤 Compte</a>
+                <a href="../templates/panier.html">🛒 Panier (0)</a>
             </div>
         </div>
     </header>
@@ -33,7 +33,7 @@
             <li><a class="nav-link" href="../templates/contact.html">Contact</a></li>
         </ul>
     </nav>
-    
+
     {% extends "base.html" %}
     {% block title %}Connexion - Herbature{% endblock %}
     {% block content %}
