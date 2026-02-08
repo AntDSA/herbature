@@ -142,23 +142,20 @@
 
         // Voir les détails d'un produit
         function viewProduct(productId) {
-            // 1. Masquer la page produits en retirant la classe active
-            document.getElementById('products').classList.remove('active');
+            // 1. Naviguer vers product-detail (gère les classes et l'affichage)
+            navigateTo('product-detail');
             
-            // 2. Afficher la div produit_detail
-            document.getElementById('produit_detail').style.display = 'block';
-            
-            // 3. Cacher toutes les div container (détails produits)
+            // 2. Cacher toutes les div container (détails produits)
             document.querySelectorAll('#produit_detail .container').forEach(div => {
                 div.style.display = 'none';
             });
             
-            // 4. Sélectionner uniquement la div correspondant au produit cliqué
+            // 3. Sélectionner uniquement la div correspondant au produit cliqué
             const productDetail = document.getElementById(productId);
             if (!productDetail) return;
             productDetail.style.display = 'block';
             
-            // 5. Mettre à jour les informations du produit
+            // 4. Mettre à jour les informations du produit
             const product = productsDB[productId];
             if (product){
                 document.getElementById('detailProductImage').textContent = product.icon;
@@ -182,16 +179,13 @@
                     page.classList.remove('active');
                 });
                 
-                // 3. Ajouter les classes à la page products
-                const productsPage = document.getElementById('products');
-                productsPage.classList.add('page', 'active');
+                // 3. Ajouter 'active' à la page products
+                document.getElementById('products').classList.add('active');
             }
             
             if (section === 'product-detail') {
-                // 1. Retirer les classes de la page products
-                const productsPage = document.getElementById('products');
-                productsPage.classList.remove('active');
-                // On garde la classe 'page' mais on retire 'active'
+                // 1. Retirer 'active' de la page products
+                document.getElementById('products').classList.remove('active');
                 
                 // 2. Afficher la div produit_detail
                 document.getElementById('produit_detail').style.display = 'block';
