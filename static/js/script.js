@@ -140,7 +140,7 @@
         }
 
 
-        // Voir les détails d'un produit
+    // Voir les détails d'un produit
         function viewProduct(productId) {
             // 0. Réafficher la div produit_detail qui était en display:none
             document.getElementById('produit_detail').style.display = 'block';
@@ -166,11 +166,18 @@
                 document.getElementById('specRef').textContent = product.ref;
                 document.getElementById('quantity').value = 1;
             }
-            
-            // Naviguer vers la page de détail
-            navigateTo('product-detail');
         }
-
+    
+        // Naviguer vers la page de détail
+        function navigateTo(section) {
+            if (section === 'products') {
+                // Masquer les détails du produit
+                document.getElementById('produit_detail').style.display = 'none';
+                
+                // Réafficher la grille des produits
+                document.querySelector('.products-grid').style.display = 'grid';
+            }
+        }
         // Augmenter la quantité
         function increaseQty() {
             const input = document.getElementById('quantity');
