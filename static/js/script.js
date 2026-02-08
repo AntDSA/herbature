@@ -176,7 +176,7 @@
                 document.getElementById('produit_detail').style.display = 'none';
                 
                 // Réafficher la grille des produits
-                document.querySelector('.products-grid').style.display = 'grid';
+                document.querySelector('.products').style.display = 'block';
             }
         }
         // Augmenter la quantité
