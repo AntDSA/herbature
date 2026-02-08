@@ -136,8 +136,8 @@
             
             // 3. Afficher le produit cliqué
             const productDetail = document.getElementById(productId);
-            if (!productDetail) return;
-            productDetail.style.display = 'block';
+            if (!productDetail) return; // si c'es null alors vrai de return rien
+            productDetail.style.display = 'block'; // ici cela l'affiche s'il existe
             
             // 4. Mettre à jour les informations du produit
             const product = productsDB[productId];
@@ -159,7 +159,7 @@
                 document.getElementById('produit_detail').classList.remove('active');
                 document.getElementById('products').classList.add('active');
                 
-                // IMPORTANT : Réinitialiser le style inline de produit_detail
+                // IMPORTANT : Réinitialiser le style inline de produit_detail en cas où
                 document.getElementById('produit_detail').style.display = '';
             }
             
