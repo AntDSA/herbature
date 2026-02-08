@@ -142,28 +142,31 @@
 
         // Voir les détails d'un produit
         function viewProduct(productId) {
+            // 0. Réafficher la div produit_detail qui était en display:none
+            document.getElementById('produit_detail').style.display = 'block';
+            
             // 1. Cacher toutes les div container (détails produits)
             document.querySelectorAll('.container').forEach(div => {
                 div.style.display = 'none';
             });
-
+            
             // 2. Sélectionner uniquement la div correspondant au produit cliqué
             const productDetail = document.getElementById(productId);
             if (!productDetail) return;
-
             productDetail.style.display = 'block';
-
+            
             // 3. Mettre à jour les informations du produit
             const product = productsDB[productId];
             if (product){
-            document.getElementById('detailProductImage').textContent = product.icon;
-            document.getElementById('detailProductTitle').textContent = product.title;
-            document.getElementById('detailProductPrice').textContent = product.price;
-            document.getElementById('specBrand').textContent = product.brand;
-            document.getElementById('specModel').textContent = product.model;
-            document.getElementById('specRef').textContent = product.ref;
-            document.getElementById('quantity').value = 1;
+                document.getElementById('detailProductImage').textContent = product.icon;
+                document.getElementById('detailProductTitle').textContent = product.title;
+                document.getElementById('detailProductPrice').textContent = product.price;
+                document.getElementById('specBrand').textContent = product.brand;
+                document.getElementById('specModel').textContent = product.model;
+                document.getElementById('specRef').textContent = product.ref;
+                document.getElementById('quantity').value = 1;
             }
+            
             // Naviguer vers la page de détail
             navigateTo('product-detail');
         }
