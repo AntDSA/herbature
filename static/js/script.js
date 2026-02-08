@@ -173,23 +173,20 @@
     
         // Naviguer vers la page de détail
         function navigateTo(section) {
-            console.log("Navigation vers:", section);
-            
             if (section === 'products') {
-                // Masquer TOUTE la div produit_detail (parent)
+                // Masquer les détails du produit
                 document.getElementById('produit_detail').style.display = 'none';
                 
-                // Réafficher la page produits
-                const productsPage = document.getElementById('products');
-                productsPage.style.display = 'block';
-                productsPage.classList.add('active'); // au cas où votre CSS utilise .active
+                // Réafficher la page des produits (avec l'ID, pas la classe !)
+                document.getElementById('products_2').style.display = 'block';
             }
             
             if (section === 'product-detail') {
-                // Masquer la page produits
-                const productsPage = document.getElementById('products');
-                productsPage.style.display = 'none';
-                productsPage.classList.remove('active');
+                // Masquer la page des produits
+                document.getElementById('products_2').style.display = 'none';
+                
+                // Afficher les détails (déjà fait dans viewProduct, mais on peut le garantir)
+                document.getElementById('produit_detail').style.display = 'block';
             }
         }
         // Augmenter la quantité
