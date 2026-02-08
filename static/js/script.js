@@ -174,25 +174,26 @@
         // Naviguer entre les pages
         function navigateTo(section) {
             if (section === 'products') {
-                // Masquer les détails du produit
+                // 1. Masquer la div produit_detail
                 document.getElementById('produit_detail').style.display = 'none';
                 
-                // Retirer 'active' de toutes les pages
+                // 2. Retirer 'active' de toutes les pages
                 document.querySelectorAll('.page').forEach(page => {
                     page.classList.remove('active');
                 });
                 
-                // Ajouter 'active' uniquement à la page produits
-                document.getElementById('products').classList.add('active');
+                // 3. Ajouter les classes à la page products
+                const productsPage = document.getElementById('products');
+                productsPage.classList.add('page', 'active');
             }
             
             if (section === 'product-detail') {
-                // Retirer 'active' de toutes les pages
-                document.querySelectorAll('.page').forEach(page => {
-                    page.classList.remove('active');
-                });
+                // 1. Retirer les classes de la page products
+                const productsPage = document.getElementById('products');
+                productsPage.classList.remove('active');
+                // On garde la classe 'page' mais on retire 'active'
                 
-                // Afficher les détails
+                // 2. Afficher la div produit_detail
                 document.getElementById('produit_detail').style.display = 'block';
             }
         }
