@@ -223,3 +223,13 @@
         function toggleFaq(element) {
             element.classList.toggle('active');
         }
+
+        function navigateTo(section) {
+            if (section === 'products') {
+                // Masquer les détails du produit
+                document.getElementById('produit_detail').style.display = 'none';
+                
+                // Réafficher la grille des produits
+                document.querySelector('.products-grid').style.display = 'grid';
+            }
+        }
