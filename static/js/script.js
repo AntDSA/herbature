@@ -177,13 +177,20 @@
                 // Masquer les détails du produit
                 document.getElementById('produit_detail').style.display = 'none';
                 
-                // Réafficher la page des produits avec la classe active
+                // Retirer 'active' de toutes les pages
+                document.querySelectorAll('.page').forEach(page => {
+                    page.classList.remove('active');
+                });
+                
+                // Ajouter 'active' uniquement à la page produits
                 document.getElementById('products').classList.add('active');
             }
             
             if (section === 'product-detail') {
-                // Masquer la page des produits
-                document.getElementById('products').classList.remove('active');
+                // Retirer 'active' de toutes les pages
+                document.querySelectorAll('.page').forEach(page => {
+                    page.classList.remove('active');
+                });
                 
                 // Afficher les détails
                 document.getElementById('produit_detail').style.display = 'block';
