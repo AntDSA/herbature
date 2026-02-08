@@ -167,6 +167,8 @@
                 document.getElementById('quantity').value = 1;
             }
             
+            // Naviguer vers la page de détail
+            navigateTo('product-detail');
         }
     
         // Naviguer vers la page de détail
@@ -175,8 +177,16 @@
                 // Masquer les détails du produit
                 document.getElementById('produit_detail').style.display = 'none';
                 
-                // Réafficher la grille des produits
-                document.querySelector('.products').style.display = 'block';
+                // Réafficher la page des produits (avec l'ID, pas la classe !)
+                document.getElementById('products').style.display = 'block';
+            }
+            
+            if (section === 'product-detail') {
+                // Masquer la page des produits
+                document.getElementById('products').style.display = 'none';
+                
+                // Afficher les détails (déjà fait dans viewProduct, mais on peut le garantir)
+                document.getElementById('produit_detail').style.display = 'block';
             }
         }
         // Augmenter la quantité
