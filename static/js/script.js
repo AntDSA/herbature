@@ -122,23 +122,6 @@
         // Variable pour stocker le produit actuellement affiché
         let currentProduct = null;
 
-        // Navigation entre les pages
-        function navigateTo(pageName) {
-            // Masquer toutes les pages
-            const pages = document.querySelectorAll('.page');
-            pages.forEach(page => page.classList.remove('active'));
-
-            // Afficher la page demandée
-            document.getElementById(pageName).classList.add('active');
-
-            // Mettre à jour la navigation active
-            const navLinks = document.querySelectorAll('.nav-link');
-            navLinks.forEach(link => link.classList.remove('active'));
-
-            // Scroll en haut
-            window.scrollTo(0, 0);
-        }
-
 
         // Voir les détails d'un produit
         function viewProduct(productId) {
@@ -226,12 +209,3 @@
             element.classList.toggle('active');
         }
 
-        function navigateTo(section) {
-            if (section === 'products') {
-                // Masquer les détails du produit
-                document.getElementById('produit_detail').style.display = 'none';
-                
-                // Réafficher la grille des produits
-                document.querySelector('.products-grid').style.display = 'grid';
-            }
-        }
