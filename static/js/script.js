@@ -140,22 +140,25 @@
         }
 
 
-    // Voir les détails d'un produit
+        // Voir les détails d'un produit
         function viewProduct(productId) {
-            // 0. Réafficher la div produit_detail qui était en display:none
+            // 1. Masquer la page produits (div parente)
+            document.getElementById('products').style.display = 'none';
+            
+            // 2. Afficher la div produit_detail
             document.getElementById('produit_detail').style.display = 'block';
             
-            // 1. Cacher toutes les div container (détails produits)
-            document.querySelectorAll('.container').forEach(div => {
+            // 3. Cacher toutes les div container (détails produits)
+            document.querySelectorAll('#produit_detail .container').forEach(div => {
                 div.style.display = 'none';
             });
             
-            // 2. Sélectionner uniquement la div correspondant au produit cliqué
+            // 4. Sélectionner uniquement la div correspondant au produit cliqué
             const productDetail = document.getElementById(productId);
             if (!productDetail) return;
             productDetail.style.display = 'block';
             
-            // 3. Mettre à jour les informations du produit
+            // 5. Mettre à jour les informations du produit
             const product = productsDB[productId];
             if (product){
                 document.getElementById('detailProductImage').textContent = product.icon;
@@ -166,26 +169,24 @@
                 document.getElementById('specRef').textContent = product.ref;
                 document.getElementById('quantity').value = 1;
             }
-            
-            // Naviguer vers la page de détail
-            navigateTo('product-detail');
         }
-    
-        // Naviguer vers la page de détail
+
+        // Naviguer entre les pages
         function navigateTo(section) {
             if (section === 'products') {
                 // Masquer les détails du produit
                 document.getElementById('produit_detail').style.display = 'none';
                 
-                // Réafficher la page des produits (avec l'ID, pas la classe !)
+                // Réafficher la page des produits (div parente ET enfante)
+                document.getElementById('products').style.display = 'block';
                 document.getElementById('products_2').style.display = 'block';
             }
             
             if (section === 'product-detail') {
                 // Masquer la page des produits
-                document.getElementById('products_2').style.display = 'none';
+                document.getElementById('products').style.display = 'none';
                 
-                // Afficher les détails (déjà fait dans viewProduct, mais on peut le garantir)
+                // Afficher les détails
                 document.getElementById('produit_detail').style.display = 'block';
             }
         }
