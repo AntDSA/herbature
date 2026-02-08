@@ -176,9 +176,8 @@
                 document.getElementById('produit_detail').classList.remove('active');
                 document.getElementById('products').classList.add('active');
                 
-                // IMPORTANT : Réinitialiser le style inline pour que le CSS prenne le dessus
-                document.getElementById('products').style.display = '';
-                document.getElementById('products_2').style.display = '';
+                // IMPORTANT : Réinitialiser le style inline de produit_detail
+                document.getElementById('produit_detail').style.display = '';
             }
             
             if (section === 'product-detail') {
