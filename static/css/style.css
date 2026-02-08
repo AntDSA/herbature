@@ -991,3 +991,36 @@
                 background: linear-gradient(to right, transparent, #e0e0e0, transparent);
             }
         }
+        /* Ligne de deux champs côte à côte */
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        /* Messages d'alerte */
+        .alert {
+            margin-top: 1rem;
+            padding: 0.875rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        .alert-error {
+            background: #fee;
+            color: #c33;
+            border: 1px solid #fcc;
+        }
+
+        .alert-success {
+            background: #efe;
+            color: #3c3;
+            border: 1px solid #cfc;
+        }
+
+        /* Responsive pour form-row */
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
