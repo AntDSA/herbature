@@ -142,7 +142,8 @@
 
         // Voir les détails d'un produit
         function viewProduct(productId) {
-            // 1. Naviguer vers product-detail (gère les classes et l'affichage)
+            
+            // 1. Naviguer vers product-detail
             navigateTo('product-detail');
             
             // 2. Cacher toutes les div container (détails produits)
@@ -150,7 +151,7 @@
                 div.style.display = 'none';
             });
             
-            // 3. Sélectionner uniquement la div correspondant au produit cliqué
+            // 3. Afficher le produit cliqué
             const productDetail = document.getElementById(productId);
             if (!productDetail) return;
             productDetail.style.display = 'block';
@@ -170,25 +171,26 @@
 
         // Naviguer entre les pages
         function navigateTo(section) {
+            console.log("navigateTo appelé, section:", section);
+            
             if (section === 'products') {
-                // 1. Masquer la div produit_detail
-                document.getElementById('produit_detail').style.display = 'none';
-                
-                // 2. Retirer 'active' de toutes les pages
+                // Retirer 'active' de toutes les pages
                 document.querySelectorAll('.page').forEach(page => {
                     page.classList.remove('active');
                 });
                 
-                // 3. Ajouter 'active' à la page products
+                // Ajouter 'active' uniquement à products
                 document.getElementById('products').classList.add('active');
             }
             
             if (section === 'product-detail') {
-                // 1. Retirer 'active' de la page products
-                document.getElementById('products').classList.remove('active');
+                // Retirer 'active' de toutes les pages
+                document.querySelectorAll('.page').forEach(page => {
+                    page.classList.remove('active');
+                });
                 
-                // 2. Afficher la div produit_detail
-                document.getElementById('produit_detail').style.display = 'block';
+                // Ajouter 'active' uniquement à produit_detail
+                document.getElementById('produit_detail').classList.add('active');
             }
         }
         // Augmenter la quantité
