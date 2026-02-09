@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Accueil - Herbature{% endblock %}
+
+{% block content %}
+<!-- PAGE HOME -->
+<section class="hero">
+    <h1>Bienvenue chez Herbature</h1>
+    <p>Découvrez nos produits de qualité exceptionnelle</p>
+    <a href="{{ url_for('produits') }}"><button class="btn-primary">Découvrir nos produits</button></a>
+</section>
+
+<div class="container">
+    <h2 style="font-size: 2.5rem; margin-bottom: 2rem;">Produits en vedette</h2>
+    <div class="products-grid">
+        {% for produit in produits %}
+        <div class="product-card" onclick="window.location.href='{{ url_for('detail_produit', id=produit['id_P']) }}'">
+            <div class="product-image">🌿</div>
+            <div class="product-info">
+                <div class="product-title">{{ produit['Nom'] }}</div>
+                <div class="product-price">{{ produit['Prix'] }}€</div>
+                <div class="product-desc">{{ produit['Description'][:100] }}...</div>
+                <form method="POST" action="{{ url_for('ajouter_panier', id_produit=produit['id_P']) }}" onclick="event.stopPropagation()">
+                    <input type="hidden" name="quantite" value="1">
+                    <button type="submit" class="btn-add-cart">Ajouter au panier</button>
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
