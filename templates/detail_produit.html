@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block title %}{{ produit['Nom'] }} - Herbature{% endblock %}
+
+{% block content %}
+<div class="container">
+    <a href="{{ url_for('produits') }}" class="back-link">← Retour aux produits</a>
+    
+    <div class="product-detail-container">
+        <div>
+            <div class="product-detail-image">🌿</div>
+        </div>
+
+        <div class="product-detail-info">
+            <h1>{{ produit['Nom'] }}</h1>
+            <div class="product-detail-price">{{ produit['Prix'] }} €</div>
+
+            <div class="product-description-box">
+                <h3>Description du produit</h3>
+                <p>{{ produit['Description'] }}</p>
+            </div>
+
+            <div class="product-specs">
+                <h3>Caractéristiques</h3>
+                
+                <div class="spec-row">
+                    <span class="spec-label">Provenance</span>
+                    <span class="spec-value">{{ produit['Provenance'] }}</span>
+                </div>
+                
+                <div class="spec-row">
+                    <span class="spec-label">Qualité</span>
+                    <span class="spec-value">{{ produit['Qualiter'] }}</span>
+                </div>
+                
+                <div class="spec-row">
+                    <span class="spec-label">Niveau de pollution</span>
+                    <span class="spec-value">{{ produit['Nv_Polution'] }}%</span>
+                </div>
+                
+                <div class="spec-row">
+                    <span class="spec-label">Type</span>
+                    <span class="spec-value">{{ produit['Type'] }}</span>
+                </div>
+                
+                <div class="spec-row">
+                    <span class="spec-label">Note</span>
+                    <span class="spec-value">{{ produit['Note'] }}/10 ⭐</span>
+                </div>
+                
+                <div class="spec-row">
+                    <span class="spec-label">Disponibilité</span>
+                    {% if produit['Stock'] > 0 %}
+                        <span class="spec-value" style="color: var(--vert-moyen); font-weight: bold;">✓ En stock ({{ produit['Stock'] }} disponibles)</span>
+                    {% else %}
+                        <span class="spec-value" style="color: red; font-weight: bold;">✗ Rupture de stock</span>
+                    {% endif %}
+                </div>
+                
+                <div class="spec-row">
+                    <span class="spec-label">Livraison</span>
+                    <span class="spec-value">2-3 jours ouvrés</span>
+                </div>
+            </div>
+
+            {% if produit['Stock'] > 0 %}
+            <form method="POST" action="{{ url_for('ajouter_panier', id_produit=produit['id_P']) }}">
+                <div class="quantity-section">
+                    <span style="font-weight: 600;">Quantité :</span>
+                    <button type="button" onclick="decreaseQty()">-</button>
+                    <input type="number" id="quantity" name="quantite" value="1" min="1" max="{{ produit['Stock'] }}">
+                    <button type="button" onclick="increaseQty()">+</button>
+                </div>
+
+                <button type="submit" class="btn-buy">🛒 Ajouter au panier</button>
+            </form>
+            {% else %}
+            <div class="alert alert-error">
+                <p>Ce produit est actuellement en rupture de stock. Il sera bientôt disponible.</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<script>
+function increaseQty() {
+    const input = document.getElementById('quantity');
+    const max = parseInt(input.max);
+    if (parseInt(input.value) < max) {
+        input.value = parseInt(input.value) + 1;
+    }
+}
+
+function decreaseQty() {
+    const input = document.getElementById('quantity');
+    if (parseInt(input.value) > 1) {
+        input.value = parseInt(input.value) - 1;
+    }
+}
+</script>
+{% endblock %}

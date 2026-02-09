@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+
+{% block title %}Contact - Herbature{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h1>Contactez-nous</h1>
+    <p>Notre équipe est là pour répondre à toutes vos questions</p>
+</section>
+
+<div class="container">
+    <div class="contact-layout">
+        <!-- Formulaire de contact -->
+        <div class="contact-form">
+            <h2>Envoyez-nous un message</h2>
+            <form method="POST" action="{{ url_for('contact') }}">
+                <div class="form-group">
+                    <label for="name">Nom complet *</label>
+                    <input type="text" id="name" name="name" required placeholder="Jean Dupont">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required placeholder="votre@email.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Téléphone</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+33 6 12 34 56 78">
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Sujet *</label>
+                    <select id="subject" name="subject" required>
+                        <option value="">Sélectionnez un sujet</option>
+                        <option value="info">Demande d'information</option>
+                        <option value="commande">Question sur une commande</option>
+                        <option value="produit">Question sur un produit</option>
+                        <option value="sav">Service après-vente</option>
+                        <option value="partenariat">Partenariat</option>
+                        <option value="autre">Autre</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" required placeholder="Écrivez votre message ici..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">📧 Envoyer le message</button>
+            </form>
+        </div>
+
+        <!-- Informations de contact -->
+        <div class="contact-info">
+            <div class="info-card">
+                <h3>📍 Adresse</h3>
+                <p>
+                    Lycée Claude Nicolas Ledoux<br>
+                    94, Vincennes<br>
+                    France
+                </p>
+            </div>
+
+            <div class="info-card">
+                <h3>📞 Téléphone</h3>
+                <p>
+                    Service client : <a href="tel:+33622783352">+33 6 22 78 33 52</a><br>
+                    Mar-Jeu : 8h30 - 10h20
+                </p>
+            </div>
+
+            <div class="info-card">
+                <h3>✉️ Email</h3>
+                <p>
+                    Contact général : <a href="mailto:contact@herbature.com">contact@herbature.com</a><br>
+                    Service client : <a href="mailto:support@herbature.com">support@herbature.com</a><br>
+                    Partenariats : <a href="mailto:partenariat@herbature.com">partenariat@herbature.com</a>
+                </p>
+            </div>
+
+            <div class="info-card">
+                <h3>⏰ Horaires d'ouverture</h3>
+                <p>
+                    Lundi - Vendredi : 9h00 - 18h00<br>
+                    Samedi : 10h00 - 16h00<br>
+                    Dimanche : Fermé
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section FAQ -->
+    <div class="faq-section">
+        <h2>❓ Questions fréquentes</h2>
+        
+        <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question">
+                <span>Quels sont les délais de livraison ?</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                Nos délais de livraison standard sont de 2 à 3 jours ouvrés en France métropolitaine. Pour les livraisons express, comptez 24h. Les délais peuvent varier selon votre localisation.
+            </div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question">
+                <span>Comment puis-je retourner un produit ?</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                Il nous est impossible de retourner un produit comme de l'herbe qui est notre vente principale, sauf exception d'endommagement au cours de la livraison.
+            </div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question">
+                <span>Quels moyens de paiement acceptez-vous ?</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                Nous acceptons les cartes bancaires (Visa, Mastercard, American Express), PayPal, et le paiement en plusieurs fois sans frais. Tous les paiements sont sécurisés.
+            </div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question">
+                <span>Puis-je modifier ma commande après validation ?</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                Vous pouvez modifier votre commande dans les 2 heures suivant sa validation. Contactez rapidement notre service client. Passé ce délai, la commande sera en cours de préparation.
+            </div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question">
+                <span>Offrez-vous la garantie sur vos produits ?</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                Nous n'offrons pas de garantie sur des produits frais comme cela.
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function toggleFaq(element) {
+    element.classList.toggle('active');
+}
+</script>
+{% endblock %}
