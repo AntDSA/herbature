@@ -1,125 +1,47 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/style.css">
-    <script rel="" src="../static/js/style.css"></script>
-    <title>Herbature</title>
+{% extends "base.html" %}
 
-</head>
-<body>
-    <!-- Header -->
-    <header>
-        <div class="header-container">
-            <div> <a class="logo" href="../templates/index.html">Herbature</a> </div>
-            <div class="search-container">
-                <input type="text" id="searchInput" placeholder="Rechercher des produits...">
-                <button id="searchButton">🔍</button>
-            </div>
-            <div class="header-actions">
-                <a href="../templates/compte.html">👤 Compte</a>
-                <a href="../templates/panier.html">🛒 Panier (0)</a>
-            </div>
-        </div>
-    </header>
+{% block title %}À propos - Herbature{% endblock %}
 
-    <!-- Navigation -->
-    <nav>
-        <ul>
-            <li><a class="nav-link active" href = "../templates/index.html">Accueil</a></li>
-            <li><a class="nav-link" href = "../templates/produit.html">Produits</a></li>
-            <li><a class="nav-link" href="../templates/apropos.html">À propos</a></li>
-            <li><a class="nav-link" href="../templates/contact.html">Contact</a></li>
-        </ul>
-    </nav>
-    
-    <!-- PAGE À PROPOS -->
+{% block content %}
+<section class="hero">
+    <h1>À propos de Herbature</h1>
+    <p>Notre histoire, nos valeurs, notre équipe</p>
+</section>
 
-   <!-- Contenu de la page À propos -->
-    <div class="container">
-        <h1>À propos de Herbature</h1>
-
-        <div class="about-section">
-            <h2>Notre Histoire</h2>
-            <div class="about-content">
-                <p>Nous avons décidés à trois de créer un projet révolutionnaire pour ceux qui ont créer une agoraphobie, pour répondre à leur besoin de redécouvrir la nature en restant tout de même chez eux. C'est comme cela que le projet Herbature est né.  </p>
-            </div>
-        </div>
-
-        <div class="about-section">
-            <h2>Notre Mission</h2>
-            <div class="about-content">
-                <p>Une très grosse gamme de choix qui pourra correspondre aux plus gros et petits budjets pour vous plaire.</p>
-            </div>
-        </div>
-
-        <div class="about-section">
-            <h2>Nos Valeurs</h2>
-            <div class="about-content">
-                <p>Nous nous engageons à satisfaire vos besoins et à respecter nos produits de qualité à un prix résonnable. </p>
-            </div>
-        </div>
-
-        <div class="about-section">
-            <h2>Notre Équipe</h2>
-            <div class="about-content">
-                <p>Nous sommes au nombre de 3, Antoine, Léo et Inès. Partis de rien, nous avons pu créer notre projet et évoluer au cours du temps pour pouvoir arriver jusque-ici </p>
-            </div>
-        </div>
-
-        <div class="about-section">
-            <h2>Nos Engagements</h2>
-            <div class="about-content">
-                <p>Nous travaillons à faire des produits plus equitables et ecologiques pour notre planète pour rester un commerce le plus propre possible. </p>
-            </div>
+<div class="container">
+    <div class="about-section">
+        <h2>Notre Histoire</h2>
+        <div class="about-content">
+            <p>Nous avons décidé à trois de créer un projet révolutionnaire pour ceux qui ont créé une agoraphobie, pour répondre à leur besoin de redécouvrir la nature en restant tout de même chez eux. C'est comme cela que le projet Herbature est né.</p>
         </div>
     </div>
 
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer-container">
-            <div class="footer-section">
-                <h3>Navigation</h3>
-                <ul>
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="produit.html">Produits</a></li>
-                    <li><a href="apropos.html">À propos</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h3>Informations</h3>
-                <ul>
-                    <li><a href="information.html#">Conditions générales</a></li>
-                    <li><a href="information.html#">Politique de confidentialité</a></li>
-                    <li><a href="information.html#">Livraison</a></li>
-                    <li><a href="information.html#">Retours & Remboursements</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h3>À propos de l'entreprise</h3>
-                <p style="color: #ccc; line-height: 1.8;">
-                    Entreprise dévellopée à trois à partir de simplement quelques idées qui ne partaient de rien. 
-                </p>
-            </div>
-
-            <div class="footer-section">
-                <h3>Suivez-nous</h3>
-                <div class="social-icons">
-                    <a href="C:\Users\ELEVE1\Desktop\Projet_Site_Web (1)\gif\rick astley GIF.gif" title="Facebook">f</a>
-                    <a href="C:\Users\ELEVE1\Desktop\Projet_Site_Web (1)\gif\Macron Ok GIF.gif" title="Twitter">𝕏</a>
-                    <a href="C:\Users\ELEVE1\Desktop\Projet_Site_Web (1)\gif\Skeleton Shield GIF.gif" title="Instagram">📷</a>
-                    <a href="C:\Users\ELEVE1\Desktop\Projet_Site_Web (1)\gif\Dance Dancing GIF.gif" title="LinkedIn">in</a>
-                    <a href="C:\Users\ELEVE1\Desktop\Projet_Site_Web (1)\gif\Good News Dancing GIF.gif" title="YouTube">▶</a>
-                </div>
-            </div>
+    <div class="about-section">
+        <h2>Notre Mission</h2>
+        <div class="about-content">
+            <p>Une très grosse gamme de choix qui pourra correspondre aux plus gros et petits budgets pour vous plaire.</p>
         </div>
+    </div>
 
-        <div class="footer-bottom">
-            <p>&copy; 2026 VerdShop. Tous droits réservés.</p>
+    <div class="about-section">
+        <h2>Nos Valeurs</h2>
+        <div class="about-content">
+            <p>Nous nous engageons à satisfaire vos besoins et à respecter nos produits de qualité à un prix raisonnable.</p>
         </div>
-    </footer>
-</body>
+    </div>
+
+    <div class="about-section">
+        <h2>Notre Équipe</h2>
+        <div class="about-content">
+            <p>Nous sommes au nombre de 3, Antoine, Léo et Inès. Partis de rien, nous avons pu créer notre projet et évoluer au cours du temps pour pouvoir arriver jusqu'ici.</p>
+        </div>
+    </div>
+
+    <div class="about-section">
+        <h2>Nos Engagements</h2>
+        <div class="about-content">
+            <p>Nous travaillons à faire des produits plus équitables et écologiques pour notre planète pour rester un commerce le plus propre possible.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

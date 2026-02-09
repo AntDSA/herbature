@@ -1,31 +1,43 @@
-
-<!-- templates/base.html -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Herbature{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
+    <!-- Header -->
     <header>
         <div class="header-container">
-            <div class="logo"><a href="{{ url_for('index') }}">Herbature</a></div>
-            <nav>
-                <a href="{{ url_for('index') }}">Accueil</a>
-                <a href="{{ url_for('produits') }}">Produits</a>
+            <div><a class="logo" href="{{ url_for('index') }}">Herbature</a></div>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Rechercher des produits...">
+                <button id="searchButton">🔍</button>
+            </div>
+            <div class="header-actions">
                 {% if session.get('id_client') %}
-                    <a href="{{ url_for('profil') }}">Profil</a>
-                    <a href="{{ url_for('deconnexion') }}">Deconnexion</a>
+                    <a href="{{ url_for('profil') }}">👤 {{ session.get('prenom', 'Profil') }}</a>
+                    <a href="{{ url_for('panier') }}">🛒 Panier ({{ session.get('panier', [])|length }})</a>
                 {% else %}
-                    <a href="{{ url_for('connexion') }}">Connexion</a>
-                    <a href="{{ url_for('inscription') }}">Inscription</a>
+                    <a href="{{ url_for('connexion') }}">👤 Compte</a>
+                    <a href="{{ url_for('panier') }}">🛒 Panier (0)</a>
                 {% endif %}
-            </nav>
+            </div>
         </div>
     </header>
 
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a class="nav-link" href="{{ url_for('index') }}">Accueil</a></li>
+            <li><a class="nav-link" href="{{ url_for('produits') }}">Produits</a></li>
+            <li><a class="nav-link" href="{{ url_for('apropos') }}">À propos</a></li>
+            <li><a class="nav-link" href="{{ url_for('contact') }}">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Messages flash -->
     {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
             <div class="messages">
@@ -36,12 +48,58 @@
         {% endif %}
     {% endwith %}
 
+    <!-- Contenu principal -->
     <main>
         {% block content %}{% endblock %}
     </main>
 
+    <!-- FOOTER -->
     <footer>
-        <p>&copy; 2026 Herbature - Projet NSI</p>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li><a href="{{ url_for('produits') }}">Produits</a></li>
+                    <li><a href="{{ url_for('apropos') }}">À propos</a></li>
+                    <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Informations</h3>
+                <ul>
+                    <li><a href="{{ url_for('information') }}">Conditions générales</a></li>
+                    <li><a href="{{ url_for('information') }}">Politique de confidentialité</a></li>
+                    <li><a href="{{ url_for('information') }}">Livraison</a></li>
+                    <li><a href="{{ url_for('information') }}">Retours & Remboursements</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>À propos de l'entreprise</h3>
+                <p style="color: #ccc; line-height: 1.8;">
+                    Entreprise développée à trois à partir de simplement quelques idées qui ne partaient de rien.
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Suivez-nous</h3>
+                <div class="social-icons">
+                    <a href="#" title="Facebook">f</a>
+                    <a href="#" title="Twitter">𝕏</a>
+                    <a href="#" title="Instagram">📷</a>
+                    <a href="#" title="LinkedIn">in</a>
+                    <a href="#" title="YouTube">▶</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Herbature. Tous droits réservés.</p>
+        </div>
     </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>

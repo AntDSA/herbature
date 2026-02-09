@@ -3,23 +3,138 @@
 {% block title %}Connexion - Herbature{% endblock %}
 
 {% block content %}
-<div class="container">
-    <h1>Connexion</h1>
-    
-    <form method="POST" action="{{ url_for('connexion') }}">
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-        </div>
+<div class="auth-wrapper">
+    <!-- CÔTÉ CONNEXION -->
+    <div class="auth-box">
+        <h1>Connexion</h1>
+        <p class="auth-subtitle">Bon retour parmi nous !</p>
         
-        <div class="form-group">
-            <label for="password">Mot de passe</label>
-            <input type="password" id="password" name="password" required>
-        </div>
+        <form method="POST" action="{{ url_for('connexion') }}">
+            <div class="form-group">
+                <label for="login-email">Adresse email</label>
+                <input 
+                    type="email" 
+                    id="login-email" 
+                    name="email"
+                    placeholder="exemple@email.com"
+                    required
+                >
+            </div>
+            
+            <div class="form-group">
+                <label for="login-password">Mot de passe</label>
+                <input 
+                    type="password" 
+                    id="login-password" 
+                    name="password"
+                    placeholder="••••••••"
+                    required
+                >
+            </div>
+            
+            <div class="form-options">
+                <label class="checkbox-container">
+                    <input type="checkbox" id="remember" name="remember">
+                    <span>Se souvenir de moi</span>
+                </label>
+            </div>
+            
+            <button type="submit" class="btn-auth">Se connecter</button>
+        </form>
+    </div>
+
+    <!-- SÉPARATEUR -->
+    <div class="auth-divider">
+        <div class="divider-line"></div>
+        <span class="divider-text">OU</span>
+        <div class="divider-line"></div>
+    </div>
+
+    <!-- CÔTÉ INSCRIPTION -->
+    <div class="auth-box">
+        <h1>Inscription</h1>
+        <p class="auth-subtitle">Créez votre compte</p>
         
-        <button type="submit">Se connecter</button>
-    </form>
-    
-    <p>Pas encore de compte ? <a href="{{ url_for('inscription') }}">S'inscrire</a></p>
+        <form method="POST" action="{{ url_for('inscription') }}">
+            <div class="form-group">
+                <label for="signup-nom">Nom</label>
+                <input 
+                    type="text" 
+                    id="signup-nom" 
+                    name="nom"
+                    placeholder="Dupont"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="signup-prenom">Prénom</label>
+                <input 
+                    type="text" 
+                    id="signup-prenom" 
+                    name="prenom"
+                    placeholder="Jean"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="signup-email">Adresse email</label>
+                <input 
+                    type="email" 
+                    id="signup-email" 
+                    name="email"
+                    placeholder="exemple@email.com"
+                    required
+                >
+            </div>
+            
+            <div class="form-group">
+                <label for="signup-password">Mot de passe (min 6 caractères)</label>
+                <input 
+                    type="password" 
+                    id="signup-password" 
+                    name="password"
+                    placeholder="••••••••"
+                    minlength="6"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="signup-adresse">Adresse</label>
+                <input 
+                    type="text" 
+                    id="signup-adresse" 
+                    name="adresse"
+                    placeholder="123 rue de la Paix"
+                >
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="signup-ville">Ville</label>
+                    <input 
+                        type="text" 
+                        id="signup-ville" 
+                        name="ville"
+                        placeholder="Paris"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="signup-code-postal">Code postal</label>
+                    <input 
+                        type="text" 
+                        id="signup-code-postal" 
+                        name="code_postal"
+                        placeholder="75000"
+                    >
+                </div>
+            </div>
+            
+            <button type="submit" class="btn-auth">Créer mon compte</button>
+        </form>
+    </div>
 </div>
 {% endblock %}
