@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <title>Mon Panier - Herbature</title>
+    <style>
+        /* Styles spécifiques au panier */
+        .cart-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .cart-header h1 {
+            font-size: 2.5rem;
+            color: var(--gris-fonce);
+        }
+
+        .continue-shopping {
+            text-decoration: none;
+            color: var(--vert-moyen);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .continue-shopping:hover {
+            color: var(--vert-fonce);
+        }
+
+        .cart-content {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 2rem;
+        }
+
+        .cart-items {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .cart-item {
+            display: grid;
+            grid-template-columns: 120px 1fr auto;
+            gap: 1.5rem;
+            padding: 1.5rem 0;
+            border-bottom: 2px solid var(--gris-clair);
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .cart-item-image {
+            width: 120px;
+            height: 120px;
+            background: var(--gris-clair);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .cart-item-details {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .cart-item-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--gris-fonce);
+            margin-bottom: 0.5rem;
+        }
+
+        .cart-item-price {
+            font-size: 1.2rem;
+            color: var(--vert-fonce);
+            font-weight: 600;
+        }
+
+        .cart-item-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--gris-clair);
+            border-radius: 8px;
+            padding: 0.3rem;
+        }
+
+        .quantity-controls button {
+            width: 35px;
+            height: 35px;
+            border: none;
+            background: white;
+            color: var(--vert-fonce);
+            font-size: 1.2rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+
+        .quantity-controls button:hover {
+            background: var(--vert-moyen);
+            color: white;
+        }
+
+        .quantity-controls span {
+            width: 40px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .remove-item {
+            color: #dc3545;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .remove-item:hover {
+            background: #fee;
+        }
+
+        .cart-item-total {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: space-between;
+        }
+
+        .item-total-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--gris-fonce);
+        }
+
+        .cart-summary {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+
+        .cart-summary h2 {
+            font-size: 1.8rem;
+            color: var(--gris-fonce);
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--gris-clair);
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.8rem 0;
+            font-size: 1.1rem;
+        }
+
+        .summary-row.total {
+            border-top: 2px solid var(--gris-clair);
+            margin-top: 1rem;
+            padding-top: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--vert-fonce);
+        }
+
+        .btn-checkout {
+            width: 100%;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, var(--vert-moyen) 0%, var(--vert-fonce) 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 1.5rem;
+        }
+
+        .btn-checkout:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(34, 197, 94, 0.3);
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .empty-cart-icon {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+        }
+
+        .empty-cart h2 {
+            font-size: 2rem;
+            color: var(--gris-fonce);
+            margin-bottom: 1rem;
+        }
+
+        .empty-cart p {
+            color: #666;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .promo-code {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--gris-clair);
+        }
+
+        .promo-code h3 {
+            font-size: 1rem;
+            color: var(--gris-fonce);
+            margin-bottom: 1rem;
+        }
+
+        .promo-input-group {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .promo-input-group input {
+            flex: 1;
+            padding: 0.8rem;
+            border: 2px solid var(--gris-clair);
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .promo-input-group button {
+            padding: 0.8rem 1.5rem;
+            background: var(--vert-moyen);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .promo-input-group button:hover {
+            background: var(--vert-fonce);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .cart-content {
+                grid-template-columns: 1fr;
+            }
+
+            .cart-summary {
+                position: relative;
+                top: 0;
+            }
+
+            .cart-item {
+                grid-template-columns: 100px 1fr;
+                gap: 1rem;
+            }
+
+            .cart-item-total {
+                grid-column: 1 / -1;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 1rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .cart-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .cart-item {
+                grid-template-columns: 80px 1fr;
+            }
+
+            .cart-item-image {
+                width: 80px;
+                height: 80px;
+                font-size: 2rem;
+            }
+
+            .cart-item-title {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div> <a class="logo" href="../templates/index.html">Herbature</a> </div>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Rechercher des produits...">
+                <button id="searchButton">🔍</button>
+            </div>
+            <div class="header-actions">
+                <a href="../templates/compte.html">👤 Compte</a>
+                <a href="../templates/panier.html" id="cart-link">🛒 Panier (<span id="cart-count-header">0</span>)</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a class="nav-link" href="../templates/index.html">Accueil</a></li>
+            <li><a class="nav-link" href="../templates/produit.html">Produits</a></li>
+            <li><a class="nav-link" href="../templates/apropos.html">À propos</a></li>
+            <li><a class="nav-link" href="../templates/contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Contenu du Panier -->
+    <div class="cart-container">
+        <div class="cart-header">
+            <h1>🛒 Mon Panier</h1>
+            <a href="../templates/produit.html" class="continue-shopping">
+                ← Continuer mes achats
+            </a>
+        </div>
+
+        <!-- Panier vide (affiché si aucun article) -->
+        <div id="empty-cart" class="empty-cart" style="display: none;">
+            <div class="empty-cart-icon">🛒</div>
+            <h2>Votre panier est vide</h2>
+            <p>Découvrez nos produits et commencez vos achats !</p>
+            <a href="../templates/produit.html" class="btn-primary">Voir nos produits</a>
+        </div>
+
+        <!-- Contenu du panier (affiché si articles présents) -->
+        <div id="cart-content" class="cart-content">
+            <!-- Articles du panier -->
+            <div class="cart-items">
+                <div id="cart-items-list">
+                    <!-- Les articles seront ajoutés ici dynamiquement -->
+                </div>
+            </div>
+
+            <!-- Résumé de la commande -->
+            <div class="cart-summary">
+                <h2>Résumé</h2>
+                
+                <div class="summary-row">
+                    <span>Sous-total</span>
+                    <span id="subtotal">0,00€</span>
+                </div>
+                
+                <div class="summary-row">
+                    <span>Livraison</span>
+                    <span id="shipping">Gratuite</span>
+                </div>
+
+                <div class="summary-row">
+                    <span>TVA (20%)</span>
+                    <span id="tax">0,00€</span>
+                </div>
+                
+                <div class="summary-row total">
+                    <span>Total</span>
+                    <span id="total">0,00€</span>
+                </div>
+
+                <button class="btn-checkout" onclick="checkout()">
+                    Valider ma commande
+                </button>
+
+                <div class="promo-code">
+                    <h3>Code promo</h3>
+                    <div class="promo-input-group">
+                        <input type="text" id="promo-input" placeholder="Entrez votre code">
+                        <button onclick="applyPromo()">Appliquer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="produit.html">Produits</a></li>
+                    <li><a href="apropos.html">À propos</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Informations</h3>
+                <ul>
+                    <li><a href="information.html#">Conditions générales</a></li>
+                    <li><a href="information.html#">Politique de confidentialité</a></li>
+                    <li><a href="information.html#">Livraison</a></li>
+                    <li><a href="information.html#">Retours & Remboursements</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>À propos de l'entreprise</h3>
+                <p style="color: #ccc; line-height: 1.8;">
+                    Entreprise développée à trois à partir de simplement quelques idées qui ne partaient de rien. 
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Suivez-nous</h3>
+                <div class="social-icons">
+                    <a href="#" title="Facebook">f</a>
+                    <a href="#" title="Twitter">𝕏</a>
+                    <a href="#" title="Instagram">📷</a>
+                    <a href="#" title="LinkedIn">in</a>
+                    <a href="#" title="YouTube">▶</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 VerdShop. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- Script JavaScript du panier -->
+    <script src="../static/js/panier.js"></script>
+</body>
+</html>
